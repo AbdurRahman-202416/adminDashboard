@@ -21,9 +21,15 @@ const Sidebar = () => {
         setTouchStartX(null);
     };
 
+    const closeSidebarOnMobile = () => {
+        setIsOpen(false); // Close sidebar on navigation
+    };
+
     return (
         <div
-            className="relative h-full"
+            className={`h-full flex ${
+                isOpen ? "w-[100vw]" : "sm:w-64"
+            } transition-all duration-300`}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
         >
@@ -31,8 +37,8 @@ const Sidebar = () => {
             <button
                 onClick={toggleSidebar}
                 className={`sm:hidden fixed ${
-                    isOpen ? "left-[38%] top-1 bg-gray-800" : "left-1 top-5"
-                } z-50 bg-indigo-950 text-white p-2 rounded-md focus:outline-none`}
+                    isOpen ? "left-[38%] top-1 bg-gray-800" : "left-1 top-3"
+                } z-50 bg-gray-800 text-white p-2 rounded-md focus:outline-none`}
             >
                 {isOpen ? (
                     <svg
@@ -71,7 +77,7 @@ const Sidebar = () => {
             <div
                 className={`${
                     isOpen ? "translate-x-0" : "-translate-x-full"
-                } sm:translate-x-0 fixed sm:static top-0 left-0 h-full border-r-2 border-indigo-700 w-[50%] sm:w-64 bg-gray-800 text-white flex-shrink-0 z-40 transform transition-transform duration-300 ease-in-out`}
+                } sm:translate-x-0 fixed  top-0 left-0 sm:sticky h-full sm:h-screen border-r-2 border-indigo-700 w-[50%] sm:w-64 bg-gray-800 text-white flex-shrink-0 z-40 transform transition-transform duration-300 ease-in-out`}
             >
                 <div className="flex items-center py-2 shadow-lg rounded-lg">
                     <img
@@ -90,6 +96,7 @@ const Sidebar = () => {
                         <NavLink
                             to="/dashboard/analytics"
                             className="block px-4 py-2 hover:bg-gray-700"
+                            onClick={closeSidebarOnMobile}
                         >
                             Analytics
                         </NavLink>
@@ -98,6 +105,7 @@ const Sidebar = () => {
                         <NavLink
                             to="/dashboard/order"
                             className="block px-4 py-2 hover:bg-gray-700"
+                            onClick={closeSidebarOnMobile}
                         >
                             All Orders
                         </NavLink>
@@ -106,6 +114,7 @@ const Sidebar = () => {
                         <NavLink
                             to="/dashboard/add-product"
                             className="block px-4 py-2 hover:bg-gray-700"
+                            onClick={closeSidebarOnMobile}
                         >
                             Add Product
                         </NavLink>
@@ -114,6 +123,7 @@ const Sidebar = () => {
                         <NavLink
                             to="/dashboard/add-category"
                             className="block px-4 py-2 hover:bg-gray-700"
+                            onClick={closeSidebarOnMobile}
                         >
                             Add Category
                         </NavLink>
@@ -122,6 +132,7 @@ const Sidebar = () => {
                         <NavLink
                             to="/dashboard/product-list"
                             className="block px-4 py-2 hover:bg-gray-700"
+                            onClick={closeSidebarOnMobile}
                         >
                             Product List
                         </NavLink>
@@ -130,6 +141,7 @@ const Sidebar = () => {
                         <NavLink
                             to="/dashboard/category-list"
                             className="block px-4 py-2 hover:bg-gray-700"
+                            onClick={closeSidebarOnMobile}
                         >
                             Category List
                         </NavLink>

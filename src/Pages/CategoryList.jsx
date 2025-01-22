@@ -96,59 +96,62 @@ const CategoryList = () => {
   };
 
   return (
-    <div className="container mx-auto mt-6">
-      <h1 className="text-2xl font-bold text-gray-800 mb-4">Manage Categories</h1>
+    <div className="">
+      <h1 className="text-2xl text-center font-bold text-gray-800 mb-4">Manage Categories</h1>
 
       {/* Categories List */}
       <div className="bg-white shadow-md rounded-md overflow-hidden">
-        <table className="table-auto w-full text-sm sm:text-base">
-          <thead>
-            <tr className="bg-gray-800 text-white">
-              <th className="px-4 py-2">ID</th>
-              <th className="px-4 py-2">Image</th>
-              <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {categories.length > 0 ? (
-              categories.map((category) => (
-                <tr key={category.id} className="border-t">
-                  <td className="px-4 py-2">{category.id}</td>
-                  <td className="px-4 py-2">
-                    <img
-                      src={category.image}
-                      alt={category.name}
-                      className="w-10 h-10 object-cover rounded-md"
-                    />
-                  </td>
-                  <td className="px-4 py-2">{category.name}</td>
-                  <td className="px-4 py-2 flex space-x-2">
-                    <button
-                      className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600"
-                      onClick={() => openEditModal(category)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
-                      onClick={() => openDeleteModal(category)}
-                    >
-                      Delete
-                    </button>
+        <div className="overflow-x-auto">
+          <table className="table-auto border-r-2 border-gray-800 items-center justify-center w-full text-sm sm:text-base">
+            <thead>
+              <tr className="bg-gray-800 text-white">
+                <th className="px-4 py-2">ID</th>
+                <th className="px-4 py-2">Image</th>
+                <th className="px-4 py-2">Name</th>
+                <th className="px-4 py-2">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {categories.length > 0 ? (
+                categories.map((category) => (
+                  <tr key={category.id} className="border-t-2 items-center justify-end">
+                    <td className="px-4 py-2">{category.id}</td>
+                    <td className="px-4 py-2">
+                      <img
+                        src={category.image}
+                        alt={category.name}
+                        className="w-10 h-10 object-cover rounded-md"
+                      />
+                    </td>
+                    <td className="px-4 text-wrap py-2">{category.name}</td>
+                    <td className="py-2 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                      <button
+                        className="bg-yellow-700 text-white px-4 py-2 rounded-md hover:bg-yellow-600"
+                        onClick={() => openEditModal(category)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="bg-red-700 text-white px-2 py-2 rounded-md hover:bg-red-500"
+                        onClick={() => openDeleteModal(category)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="5" className="text-center py-4 text-gray-500">
+                    No categories found.
                   </td>
                 </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="5" className="text-center py-4 text-gray-500">
-                  No categories found.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
+
 
       {/* Edit Modal */}
       {isEditModalOpen && editingCategory && (

@@ -64,7 +64,7 @@ const AddCategory = () => {
 
   return (
     <div className="container mx-auto mt-6 p-4">
-      <h1 className="text-2xl font-bold text-gray-800 mb-4">Add New Category</h1>
+      <h1 className="text-2xl text-center font-bold text-gray-800 mb-4">Add New Category</h1>
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-md p-6">
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Name</label>
@@ -78,7 +78,7 @@ const AddCategory = () => {
             required
           />
         </div>
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Description</label>
           <textarea
             name="description"
@@ -87,7 +87,7 @@ const AddCategory = () => {
             className="w-full border border-gray-400 p-2 rounded-md"
             placeholder="Enter category description"
           />
-        </div>
+        </div> */}
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Image</label>
           <input

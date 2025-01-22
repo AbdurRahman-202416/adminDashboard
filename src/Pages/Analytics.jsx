@@ -97,7 +97,7 @@ const StoreStatistics = () => {
 
   return (
     <div>
-        <div className="grid py-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 p-6 bg-gray-100 min-h-screen">
+        <div className="grid py-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 p-6 bg-gray-100 min-h-screen">
       {cards.map((card, index) => (
         <Link
           to={card.route}
@@ -121,7 +121,7 @@ const StoreStatistics = () => {
       ))}
       
     </div>
-    <Footer/>
+    
     </div>
   
   );

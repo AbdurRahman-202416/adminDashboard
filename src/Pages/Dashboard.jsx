@@ -13,7 +13,7 @@ const Dashboard = () => (
         <Sidebar />
         <div className="flex-1">
             <Navbar />
-            <div className="p-4 py-20">
+            <div className=" py-16">
                 <Routes>
                     <Route path="/dashboard/*" element={<Analytics/>} />
                     <Route path="/analytics" element={<Analytics/>} />
